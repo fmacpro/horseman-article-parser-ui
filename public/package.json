@@ -1,10 +1,10 @@
 {
-  "name": "bpof-frontend",
-  "version": "1.0.0",
+  "name": "horseman-article-parser-ui",
+  "version": "0.0.1",
   "description": "",
   "main": "",
-  "author": "",
-  "license": "ISC",
+  "author": "Frank MacDonald",
+  "license": "GPL-3.0",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.3.1",
     "angular": "1.6.5",
