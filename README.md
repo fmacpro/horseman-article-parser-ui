@@ -11,7 +11,7 @@ Node.js & [Yarn](https://yarnpkg.com/en/)
 Clone the repo
 
 ```
-git clone https://github.com/fmacpro/horseman-article-parser.git
+git clone https://github.com/fmacpro/horseman-article-parser-ui.git
 ```
 
 Next make sure you have [Yarn](https://yarnpkg.com/en/) installed and run the following command in the repo root. This will install the required dependencies
