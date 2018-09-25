@@ -1,6 +1,8 @@
 # Horseman Article Parser UI
 
-A web page article parser which returns the article's formatted text & other attributes including Google SERP preview, sentiment, keyphrases, people, places, organisations and spelling suggestions. 
+A web page article parser which returns the article's formatted text & other attributes including Google SERP preview, sentiment, keyphrases, people, places, organisations and spelling suggestions.
+
+![Preview](https://i.imgur.com/daCGQSu.png "App Preview")
 
 ### Prerequisites
 
