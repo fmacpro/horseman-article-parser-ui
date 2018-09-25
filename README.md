@@ -51,7 +51,7 @@ Lint the index.js & app.js files with:
 yarn lint
 ```
 
-The parser is also avialable as an [NPM module](https://github.com/fmacpro/horseman-article-parser) for use in your own projects.
+The parser is also available as an [NPM module](https://github.com/fmacpro/horseman-article-parser) for use in your own projects.
 
 ## License
 
