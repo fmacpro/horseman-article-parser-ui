@@ -1,0 +1,93 @@
+.content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.google-preview .description {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  overflow: hidden;
+  font-family: arial, sans-serif;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.24;
+  display: block;
+}
+
+.google-preview .url {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  font-family: arial, sans-serif;
+  font-size: 16px;
+  color: #093;
+  margin-bottom: 1px;
+  font-size: 14px;
+  line-height: 1.2;
+  display: block;
+}
+
+.google-preview .title {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  font-family: arial, sans-serif;
+  text-decoration: underline;
+  color: #2518b5;
+  font-size: 16px;
+  line-height: 1.2;
+  display: block;
+  margin-bottom: 2px;
+}
+
+span.label.label-default {
+  margin-right: 3px;
+  display: inline-block;
+  text-transform: capitalize;
+  font-size: 1em;
+  margin-bottom: 6px;
+  font-weight: normal;
+}
+
+pre.status {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+img {
+  max-width: 100%;
+  margin-bottom: 1.5em;
+}
+
+.spelling ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.spelling ul > li {
+    margin-bottom: 0.5em;
+}
+
+.spelling ul > li > span {
+    margin-right: 0.5em;
+}
+
+pre.article-text-content {
+  counter-reset: section; /* Reset the counter to 0 for each new pre */
+  margin-left: 0px;
+}
+pre.article-text-content > span:before {
+  counter-increment: section; /* Increment the section counter*/
+  content: counter(section); /* Display the counter */
+  padding: 0 5px;
+  min-width: 30px;
+  display: inline-block;
+  text-align: right;
+  border-right: 1px solid #777;
+  margin-right: 5px;
+  color: #777
+}
+
+span.label.org {
+  text-transform: uppercase;
+  padding-top: 4px;
+}

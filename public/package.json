@@ -1,0 +1,22 @@
+{
+  "name": "bpof-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.3.1",
+    "angular": "1.6.5",
+    "angular-sanitize": "1.6.5",
+    "angular-socket-io": "0.7.0",
+    "angular-ui-bootstrap": "2.5.0",
+    "bootstrap": "3.3.7",
+    "install": "0.12.1",
+    "jquery": "1.11.1",
+    "npm": "6.4.1"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
+  }
+}
