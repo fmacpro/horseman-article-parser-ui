@@ -1063,9 +1063,9 @@ hoek@0.9.x:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-0.9.1.tgz#3d322462badf07716ea7eb85baf88079cddce505"
 
-horseman-article-parser@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/horseman-article-parser/-/horseman-article-parser-0.0.6.tgz#ea2a9617e2bac19265bec16c6e7bf7a3fdbb5f3a"
+horseman-article-parser@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/horseman-article-parser/-/horseman-article-parser-0.1.0.tgz#55aae8c367100bde83c6c1554c795f241b725710"
   dependencies:
     clean-html "^1.5.0"
     compromise "^11.12.0"
@@ -1951,8 +1951,8 @@ run-async@^2.2.0:
     is-promise "^2.1.0"
 
 rxjs@^6.1.0:
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.2.tgz#6a688b16c4e6e980e62ea805ec30648e1c60907f"
+  version "6.3.3"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz#3c6a7fa420e844a81390fb1158a9ec614f4bad55"
   dependencies:
     tslib "^1.9.0"
 
