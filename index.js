@@ -11,23 +11,23 @@ app.get('/', function (req, res) {
   res.render('index')
 })
 
-var params = {
+var config = {
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
-  config: { timeout: 10000, cookies: './cookies.json', bluebirdDebug: false, injectJquery: true }
+  horseman: { timeout: 10000, cookies: './cookies.json', bluebirdDebug: false, injectJquery: true }
 }
 
 io.on('connection', function (socket) {
   socket.on('parse:article', function (msg) {
-    params.url = msg.url
+    config.url = msg.url
 
     if (msg.tor === true) {
-      params.config.proxy = '127.0.0.1:9050'
-      params.config.proxyType = 'socks5'
+      config.horseman.proxy = '127.0.0.1:9050'
+      config.horseman.proxyType = 'socks5'
     } else {
-      params.config.proxyType = 'none'
+      config.horseman.proxyType = 'none'
     }
 
-    parser.parseArticle(params, socket)
+    parser.parseArticle(config, socket)
       .then(function (article) {
         var response = {
           title: article.title.text,
