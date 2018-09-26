@@ -11,23 +11,26 @@ app.get('/', function (req, res) {
   res.render('index')
 })
 
-var config = {
+var options = {
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
-  horseman: { timeout: 10000, cookies: './cookies.json', bluebirdDebug: false, injectJquery: true }
+  horseman: {
+    timeout: 10000, 
+    cookies: './cookies.json'
+  }
 }
 
 io.on('connection', function (socket) {
   socket.on('parse:article', function (msg) {
-    config.url = msg.url
+    options.url = msg.url
 
     if (msg.tor === true) {
-      config.horseman.proxy = '127.0.0.1:9050'
-      config.horseman.proxyType = 'socks5'
+      options.horseman.proxy = '127.0.0.1:9050'
+      options.horseman.proxyType = 'socks5'
     } else {
-      config.horseman.proxyType = 'none'
+      options.horseman.proxyType = 'none'
     }
 
-    parser.parseArticle(config, socket)
+    parser.parseArticle(options, socket)
       .then(function (article) {
         var response = {
           title: article.title.text,
@@ -39,9 +42,11 @@ io.on('connection', function (socket) {
           orgs: article.orgs,
           places: article.places,
           text: {
-            formatted: article.processed.formattedText,
-            html: article.processed.html
+            raw: article.processed.text.raw,
+            formatted: article.processed.text.formatted,
+            html: article.processed.text.html
           },
+          html: article.processed.html,
           image: article.meta['og:image'],
           screenshot: article.mobile,
           spelling: article.spelling
@@ -52,7 +57,7 @@ io.on('connection', function (socket) {
       .catch(function (error) {
         socket.emit('parse:status', error.message)
         socket.emit('parse:error', {})
-        // socket.emit('parse:status', "\n" + error.stack);
+        socket.emit('parse:status', "\n" + error.stack);
       })
   })
 })
