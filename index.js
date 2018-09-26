@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
 var options = {
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
   horseman: {
-    timeout: 10000, 
+    timeout: 10000,
     cookies: './cookies.json'
   }
 }
@@ -57,7 +57,7 @@ io.on('connection', function (socket) {
       .catch(function (error) {
         socket.emit('parse:status', error.message)
         socket.emit('parse:error', {})
-        socket.emit('parse:status', "\n" + error.stack);
+        socket.emit('parse:status', '\n' + error.stack)
       })
   })
 })
