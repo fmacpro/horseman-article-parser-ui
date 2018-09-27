@@ -1,6 +1,6 @@
 {
   "name": "horseman-article-parser-ui",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Web Page Inspection Tool UI. Google SERP Preview, Sentiment Analysis, Keyword Extraction, Named Entity Recognition & Spell Check",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "dependencies": {
     "ejs": "^2.5.7",
     "express": "^4.15.3",
-    "horseman-article-parser": "^0.1.0",
+    "horseman-article-parser": "^0.1.1",
     "socket.io": "^2.0.3"
   },
   "engines": {
