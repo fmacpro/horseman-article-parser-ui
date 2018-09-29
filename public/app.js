@@ -35,6 +35,9 @@ app.controller('mainController', function (socket, $scope, $window) {
 
     $scope.jsonData = JSON.stringify(jsonData, null, 2)
 
+    if (typeof article.metadescription === 'undefined') article.metadescription = ''
+    if (typeof article.title === 'undefined') article.title = ''
+
     if (article.metadescription.length > 158) article.metadescription = article.metadescription.substring(0, 158) + '...'
     if (article.title.length > 71) article.title = article.title.substring(0, 71) + '...'
     if (article.url.length > 71) article.url = article.url.substring(0, 71) + '...'

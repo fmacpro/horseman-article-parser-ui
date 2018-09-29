@@ -1063,9 +1063,9 @@ hoek@0.9.x:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-0.9.1.tgz#3d322462badf07716ea7eb85baf88079cddce505"
 
-horseman-article-parser@^0.1.1:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/horseman-article-parser/-/horseman-article-parser-0.1.2.tgz#5635be6894de38a0ec99068352bdbcf808c04795"
+horseman-article-parser@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.npmjs.org/horseman-article-parser/-/horseman-article-parser-0.1.5.tgz#842fa8424601310be521097d4f052d3388711d06"
   dependencies:
     clean-html "^1.5.0"
     compromise "^11.12.0"
