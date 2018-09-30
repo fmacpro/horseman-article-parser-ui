@@ -16,6 +16,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+absolutify@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/absolutify/-/absolutify-0.1.0.tgz#1b86f89d8803f6f1dd8e42306d6e30a5ad4f6be7"
+
 accepts@~1.3.4, accepts@~1.3.5:
   version "1.3.5"
   resolved "https://registry.npmjs.org/accepts/-/accepts-1.3.5.tgz#eb777df6011723a3b14e8a72c0805c8e86746bd2"
@@ -1063,10 +1067,11 @@ hoek@0.9.x:
   version "0.9.1"
   resolved "https://registry.npmjs.org/hoek/-/hoek-0.9.1.tgz#3d322462badf07716ea7eb85baf88079cddce505"
 
-horseman-article-parser@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.npmjs.org/horseman-article-parser/-/horseman-article-parser-0.1.6.tgz#0ba4d9de0b816271057052920445cef7acb278b3"
+horseman-article-parser@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.npmjs.org/horseman-article-parser/-/horseman-article-parser-0.1.7.tgz#cef2cde3b919dec6e40a645fa94a702f94297099"
   dependencies:
+    absolutify "^0.1.0"
     clean-html "^1.5.0"
     compromise "^11.12.0"
     dictionary-en-gb "^2.0.0"
@@ -1282,7 +1287,7 @@ jsbn@~0.1.0:
 
 jsdom@^6.3.0:
   version "6.5.1"
-  resolved "https://registry.npmjs.org/jsdom/-/jsdom-6.5.1.tgz#b6064d6a7651081af41d576edc56bc51e00122c0"
+  resolved "http://registry.npmjs.org/jsdom/-/jsdom-6.5.1.tgz#b6064d6a7651081af41d576edc56bc51e00122c0"
   dependencies:
     acorn "^2.4.0"
     acorn-globals "^1.0.4"
