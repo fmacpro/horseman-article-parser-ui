@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint index.js --fix && ./node_modules/.bin/eslint public/app.js --fix",
-    "postinstall": "cd public && yarn"
+    "postinstall": "cd public && npm install"
   },
   "repository": {
     "type": "git",

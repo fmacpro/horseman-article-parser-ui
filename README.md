@@ -6,7 +6,7 @@ A web page article parser which returns the article's formatted text & other att
 
 ### Prerequisites
 
-Node.js & [Yarn](https://yarnpkg.com/en/)
+Node.js & NPM
 
 ### Install
 
@@ -16,10 +16,10 @@ Clone the repo
 git clone https://github.com/fmacpro/horseman-article-parser-ui.git
 ```
 
-Next make sure you have [Yarn](https://yarnpkg.com/en/) installed and run the following command in the repo root. This will install the required dependencies
+Next run the following command in the repo root. This will install the required dependencies
 
 ```
-yarn
+npm install
 ```
 
 ### Running the Article Parser App
@@ -45,12 +45,12 @@ Please feel free to fork the repo or open pull requests to the development branc
 
 Build the dependencies with:
 ```
-yarn
+npm install
 ```
 
 Lint the index.js & app.js files with:
 ```
-yarn lint
+npm lint
 ```
 
 The parser is also available as an [NPM module](https://github.com/fmacpro/horseman-article-parser) for use in your own projects.
