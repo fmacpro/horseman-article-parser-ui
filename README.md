@@ -4,6 +4,8 @@ A web page article parser which returns the article's formatted text & other att
 
 ![Preview](https://i.imgur.com/daCGQSu.png "App Preview")
 
+[online preview](https://inspector.fmac.pro/)
+
 ### Prerequisites
 
 Node.js & NPM
