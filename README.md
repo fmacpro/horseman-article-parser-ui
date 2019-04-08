@@ -8,7 +8,7 @@ A web page article parser which returns the article's formatted text & other att
 
 ### Prerequisites
 
-Node.js & NPM
+Node.js NPM & Chrome / Chromium
 
 ### Install
 
@@ -52,7 +52,7 @@ npm install
 
 Lint the index.js & app.js files with:
 ```
-npm run lint --fix
+npm run lint
 ```
 
 The parser is also available as an [NPM module](https://github.com/fmacpro/horseman-article-parser) for use in your own projects.
@@ -69,21 +69,24 @@ The parser is also available as an [NPM module](https://github.com/fmacpro/horse
 - [@fortawesome/fontawesome-free](https://ghub.io/@fortawesome/fontawesome-free): The iconic font, CSS, and SVG framework
 - [angular](https://ghub.io/angular): HTML enhanced for web apps
 - [angular-sanitize](https://ghub.io/angular-sanitize): AngularJS module for sanitizing HTML
-- [angular-socket-io](https://ghub.io/angular-socket-io): 
+- [angular-socket-io](https://ghub.io/angular-socket-io): Bower Component for using AngularJS with [Socket.IO](http://socket.io/), based on [this](http://briantford.com/blog/angular-socket-io.html).
 - [angular-ui-bootstrap](https://ghub.io/angular-ui-bootstrap): Native AngularJS (Angular) directives for Bootstrap
 - [bootstrap](https://ghub.io/bootstrap): The most popular front-end framework for developing responsive, mobile first projects on the web.
 - [install](https://ghub.io/install): Minimal JavaScript module loader
 - [jquery](https://ghub.io/jquery): JavaScript library for DOM operations
 - [npm](https://ghub.io/npm): a package manager for JavaScript
 
+
 ## Dev Dependencies
 
 - [eslint](https://ghub.io/eslint): An AST-based pattern checker for JavaScript.
 - [eslint-config-standard](https://ghub.io/eslint-config-standard): JavaScript Standard Style - ESLint Shareable Config
 - [eslint-plugin-import](https://ghub.io/eslint-plugin-import): Import with sanity.
+- [eslint-plugin-json](https://ghub.io/eslint-plugin-json): Lint JSON files
 - [eslint-plugin-node](https://ghub.io/eslint-plugin-node): Additional ESLint&#39;s rules for Node.js
 - [eslint-plugin-promise](https://ghub.io/eslint-plugin-promise): Enforce best practices for JavaScript promises
 - [eslint-plugin-standard](https://ghub.io/eslint-plugin-standard): ESlint Plugin for the Standard Linter
+
 
 ## License
 

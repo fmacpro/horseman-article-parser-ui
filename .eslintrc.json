@@ -1,7 +1,5 @@
 {
-    "extends": "standard",
-    "globals": {
-       "angular": {},
-       "$": {}
-    }
+    "plugins": [
+        "json"
+    ]
 }
