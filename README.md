@@ -4,6 +4,8 @@ A web page article parser which returns the article's formatted text & other att
 
 ![Preview](https://i.imgur.com/daCGQSu.png "App Preview")
 
+[online preview](https://inspector.fmac.pro/)
+
 ### Prerequisites
 
 Node.js & NPM
@@ -50,7 +52,7 @@ npm install
 
 Lint the index.js & app.js files with:
 ```
-npm lint
+npm run lint --fix
 ```
 
 The parser is also available as an [NPM module](https://github.com/fmacpro/horseman-article-parser) for use in your own projects.
