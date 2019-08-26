@@ -13,8 +13,8 @@
     "angular-ui-bootstrap": "2.5.0",
     "bootstrap": "3.3.7",
     "install": "0.12.1",
-    "jquery": "1.11.1",
-    "npm": "6.4.1"
+    "jquery": "^1.12.4",
+    "npm": "^6.11.2"
   },
   "engines": {
     "yarn": ">= 1.0.0"

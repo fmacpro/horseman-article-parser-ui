@@ -12,10 +12,9 @@ app.get('/', function (req, res) {
 })
 
 var options = {
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
-  horseman: {
-    timeout: 10000,
-    cookies: './cookies.json'
+  puppeteer: {
+    headless: true,
+    defaultViewport: { width: 768, height: 2048, deviceScaleFactor: 2, isMobile: true, hasTouch: true},
   }
 }
 
@@ -24,10 +23,7 @@ io.on('connection', function (socket) {
     options.url = msg.url
 
     if (msg.tor === true) {
-      options.horseman.proxy = '127.0.0.1:9050'
-      options.horseman.proxyType = 'socks5'
-    } else {
-      options.horseman.proxyType = 'none'
+      options.puppeteer.args = ['--proxy-server=socks5://127.0.0.1:9050']
     }
 
     parser.parseArticle(options, socket)
