@@ -8,7 +8,7 @@ A web page article parser which returns the article's formatted text & other att
 
 ### Prerequisites
 
-Node.js NPM & Chrome / Chromium
+Node.js & NPM
 
 ### Install
 
@@ -33,12 +33,6 @@ node index.js
 ```
 
 then browse to `http://localhost:3000/`
-
-for debugging the phantom.js process you can start the app with
-
-```
-DEBUG=horseman node index.js
-```
 
 
 ## Development
