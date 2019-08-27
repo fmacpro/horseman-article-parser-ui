@@ -8,7 +8,7 @@ A web page article parser which returns the article's formatted text & other att
 
 ### Prerequisites
 
-Node.js NPM & Chrome / Chromium
+Node.js & NPM
 
 ### Install
 
