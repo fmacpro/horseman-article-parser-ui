@@ -15,7 +15,8 @@ var options = {
   puppeteer: {
     headless: true,
     defaultViewport: { width: 768, height: 2048, deviceScaleFactor: 2, isMobile: true, hasTouch: true},
-  }
+  },
+  enabled: ['screenshot', 'sentiment', 'entities', 'spelling', 'keywords']
 }
 
 io.on('connection', function (socket) {
