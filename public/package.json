@@ -7,7 +7,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",
-    "angular": "1.6.5",
+    "angular": "1.7.9",
     "angular-sanitize": "1.6.5",
     "angular-socket-io": "0.7.0",
     "angular-ui-bootstrap": "2.5.0",
