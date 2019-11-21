@@ -13,8 +13,10 @@ app.get('/', function (req, res) {
 
 var options = {
   puppeteer: {
-    headless: true,
-    defaultViewport: { width: 768, height: 2048, deviceScaleFactor: 2, isMobile: true, hasTouch: true},
+    launch: {
+      headless: true,
+      defaultViewport: { width: 768, height: 2048, deviceScaleFactor: 2, isMobile: true, hasTouch: true}
+    }
   },
   enabled: ['screenshot', 'sentiment', 'entities', 'spelling', 'keywords']
 }
