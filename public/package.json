@@ -11,7 +11,7 @@
     "angular-sanitize": "1.7.9",
     "angular-socket-io": "0.7.0",
     "angular-ui-bootstrap": "2.5.0",
-    "bootstrap": "3.3.7",
+    "bootstrap": "^3.4.1",
     "install": "0.12.1",
     "jquery": "^3.4.1",
     "npm": "^6.13.1"
