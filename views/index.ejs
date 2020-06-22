@@ -53,15 +53,15 @@
         </div>
         <div data-ng-if="article.people.length > 0" class="people">
           <h3>People</h3>
-          <span data-ng-repeat="person in article.people" class="label person label-default">{{person.normal}}</span>
+          <span data-ng-repeat="person in article.people" class="label person label-default">{{person}}</span>
         </div>
         <div data-ng-if="article.orgs.length > 0" class="orgs">
           <h3>Organisations & Groups</h3>
-          <span data-ng-repeat="org in article.orgs" class="label org label-default">{{org.normal}}</span>
+          <span data-ng-repeat="org in article.orgs" class="label org label-default">{{org}}</span>
         </div>
         <div data-ng-if="article.places.length > 0" class="places">
           <h3>Places</h3>
-          <span data-ng-repeat="place in article.places" class="label place label-default">{{place.normal}}</span>
+          <span data-ng-repeat="place in article.places" class="label place label-default">{{place}}</span>
         </div>
         <div data-ng-if="article.spelling.length > 0" class="spelling">
           <h3>Spelling</h3>
