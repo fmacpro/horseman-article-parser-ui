@@ -1,8 +1,8 @@
-var express = require('express')
-var app = express()
-var http = require('http').Server(app)
-var io = require('socket.io')(http)
-var parser = require('horseman-article-parser')
+const express = require('express')
+const app = express()
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
+const parser = require('horseman-article-parser')
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
   res.render('index')
 })
 
-var options = {
+let options = {
   puppeteer: {
     launch: {
       headless: true,
@@ -31,15 +31,16 @@ io.on('connection', function (socket) {
 
     parser.parseArticle(options, socket)
       .then(function (article) {
-        var response = {
+
+        let response = {
           title: article.title.text,
           metadescription: article.meta.description.text,
           url: article.url,
           sentiment: article.sentiment,
           keyphrases: article.processed.keyphrases,
-          people: article.people,
-          orgs: article.orgs,
-          places: article.places,
+          people: [...new Set(article.people.map( person => person.text ))],
+          orgs: [...new Set(article.orgs.map( org => org.text ))],
+          places: [...new Set(article.places.map( place => place.text ))],
           text: {
             raw: article.processed.text.raw,
             formatted: article.processed.text.formatted,
