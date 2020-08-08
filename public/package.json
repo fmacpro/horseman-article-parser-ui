@@ -12,10 +12,6 @@
     "angular-socket-io": "0.7.0",
     "angular-ui-bootstrap": "2.5.0",
     "bootstrap": "^3.4.1",
-    "install": "0.12.1",
     "jquery": "^3.5.1"
-  },
-  "engines": {
-    "yarn": ">= 1.0.0"
   }
 }
