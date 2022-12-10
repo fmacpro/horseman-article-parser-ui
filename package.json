@@ -19,7 +19,7 @@
   "homepage": "https://github.com/fmacpro/horseman-article-parser-ui#readme",
   "dependencies": {
     "ejs": "^2.7.4",
-    "express": "^4.15.3",
+    "express": "^4.17.3",
     "horseman-article-parser": "^0.8.52",
     "socket.io": "^2.4.1"
   },
