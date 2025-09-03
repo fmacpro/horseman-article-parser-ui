@@ -11,11 +11,11 @@ app.get('/', function (req, res) {
   res.render('index')
 })
 
-let options = {
+const options = {
   puppeteer: {
     launch: {
       headless: true,
-      defaultViewport: { width: 768, height: 2048, deviceScaleFactor: 2, isMobile: true, hasTouch: true}
+      defaultViewport: { width: 768, height: 2048, deviceScaleFactor: 2, isMobile: true, hasTouch: true }
     }
   },
   enabled: ['screenshot', 'sentiment', 'entities', 'spelling', 'keywords']
@@ -31,16 +31,15 @@ io.on('connection', function (socket) {
 
     parser.parseArticle(options, socket)
       .then(function (article) {
-
-        let response = {
+        const response = {
           title: article.title.text,
           metadescription: article.meta.description.text,
           url: article.url,
           sentiment: article.sentiment,
           keyphrases: article.processed.keyphrases,
-          people: [...new Set(article.people.map( person => person.text ))],
-          orgs: [...new Set(article.orgs.map( org => org.text ))],
-          places: [...new Set(article.places.map( place => place.text ))],
+          people: [...new Set(article.people.map(person => person.text))],
+          orgs: [...new Set(article.orgs.map(org => org.text))],
+          places: [...new Set(article.places.map(place => place.text))],
           text: {
             raw: article.processed.text.raw,
             formatted: article.processed.text.formatted,
