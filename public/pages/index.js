@@ -19,6 +19,7 @@ export default function Home () {
     socket.on('parse:article', (a) => {
       const json = {
         title: a.title,
+        titlePreview: a.titlePreview,
         metadescription: a.metadescription,
         url: a.url,
         sentiment: { score: a.sentiment.score, comparative: a.sentiment.comparative },
@@ -34,7 +35,7 @@ export default function Home () {
         return str.length > len ? str.substring(0, len) + '...' : str
       }
       a.metadescription = fixLen(a.metadescription, 158)
-      a.title = fixLen(a.title, 71)
+      a.titlePreview = fixLen(a.title, 71)
       a.url = fixLen(a.url, 71)
 
       setArticle(a)
@@ -96,7 +97,7 @@ export default function Home () {
             <div className='article col-sm-6'>
               <h3>Google Preview</h3>
               <div className='google-preview'>
-                <a className='title'>{article.title}</a>
+                <a className='title'>{article.titlePreview}</a>
                 <span className='url'>{article.url}</span>
                 <p className='description'>{article.metadescription}</p>
               </div>
@@ -151,7 +152,10 @@ export default function Home () {
                 <pre className='content article-text-content' dangerouslySetInnerHTML={{ __html: article.text.html }} />
               )}
               {tab === 'html' && (
-                <div className='content article-text-content' dangerouslySetInnerHTML={{ __html: article.html }} />
+                <div>
+                  <h1 className='content article-text-title'>{article.title}</h1>
+                  <div className='content article-text-content' dangerouslySetInnerHTML={{ __html: article.html }} />
+                </div>
               )}
               {tab === 'screenshot' && (
                 <img src={`data:image/png;base64,${article.screenshot}`} alt='' />
