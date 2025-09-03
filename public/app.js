@@ -1,4 +1,5 @@
-var app = angular.module('app', [
+/* global angular */
+const app = angular.module('app', [
   'btford.socket-io',
   'ui.bootstrap',
   'ngSanitize'
@@ -22,7 +23,7 @@ app.controller('mainController', function (socket, $scope, $window) {
   }
 
   socket.on('parse:article', function (article) {
-    var jsonData = {
+    const jsonData = {
       title: article.title,
       metadescription: article.metadescription,
       url: article.url,
