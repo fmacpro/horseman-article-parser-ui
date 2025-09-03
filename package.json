@@ -4,7 +4,7 @@
   "description": "Web Page Inspection Tool UI. Google SERP Preview, Sentiment Analysis, Keyword Extraction, Named Entity Recognition & Spell Check",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint . --ext .json --ext .js --fix",
+    "lint": "eslint . --fix",
     "start": "node index.js"
   },
   "repository": {
@@ -27,11 +27,9 @@
     "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-json": "^4.0.0",
-    "eslint-plugin-n": "^16.5.0",
-    "eslint-plugin-promise": "^6.1.1"
+    "eslint": "^9.34.0",
+    "eslint-plugin-json": "^4.0.1",
+    "eslint-plugin-n": "^17.21.3",
+    "eslint-plugin-promise": "^7.2.1"
   }
 }
