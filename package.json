@@ -20,7 +20,7 @@
   "dependencies": {
     "ejs": "^2.7.4",
     "express": "^4.15.3",
-    "horseman-article-parser": "^0.8.52",
+    "horseman-article-parser": "^1.0.0",
     "socket.io": "^2.4.1"
   },
   "devDependencies": {
