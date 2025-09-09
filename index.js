@@ -52,7 +52,7 @@ async function main () {
             },
             html: article.processed.html,
             image: article.meta['og:image'],
-            screenshot: article.mobile,
+            screenshot: article.screenshot,
             spelling: article.spelling
           }
 
