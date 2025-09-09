@@ -1,14 +1,17 @@
 const express = require('express')
-const next = require('next')
 const http = require('http')
 const socketio = require('socket.io')
-const parser = require('horseman-article-parser')
 
-const dev = process.env.NODE_ENV !== 'production'
-const nextApp = next({ dev, dir: './public' })
-const handle = nextApp.getRequestHandler()
+async function main () {
+  const next = (await import('next')).default
+  const parser = await import('horseman-article-parser')
 
-nextApp.prepare().then(() => {
+  const dev = process.env.NODE_ENV !== 'production'
+  const nextApp = next({ dev, dir: './public' })
+  const handle = nextApp.getRequestHandler()
+
+  await nextApp.prepare()
+
   const app = express()
   const server = http.createServer(app)
   const io = socketio(server)
@@ -68,5 +71,6 @@ nextApp.prepare().then(() => {
   server.listen(3000, function () {
     console.log('listening on *:3000')
   })
-})
+}
 
+main()
