@@ -42,9 +42,9 @@ async function main () {
             url: article.url,
             sentiment: article.sentiment,
             keyphrases: article.processed.keyphrases,
-            people: [...new Set(article.people.map(person => person.text))],
-            orgs: [...new Set(article.orgs.map(org => org.text))],
-            places: [...new Set(article.places.map(place => place.text))],
+            people: article.people,
+            orgs: article.orgs,
+            places: article.places,
             text: {
               raw: article.processed.text.raw,
               formatted: article.processed.text.formatted,
