@@ -23,7 +23,7 @@ async function main () {
         defaultViewport: { width: 768, height: 2048, deviceScaleFactor: 2, isMobile: true, hasTouch: true }
       }
     },
-    enabled: ['screenshot', 'sentiment', 'entities', 'spelling', 'keywords']
+    enabled: ['screenshot', 'sentiment', 'entities', 'spelling', 'keywords', 'readability', 'summary']
   }
 
   io.on('connection', function (socket) {
@@ -45,10 +45,12 @@ async function main () {
             people: article.people,
             orgs: article.orgs,
             places: article.places,
+            readability: article.readability || null,
             text: {
               raw: article.processed.text.raw,
               formatted: article.processed.text.formatted,
-              html: article.processed.text.html
+              html: article.processed.text.html,
+              sentences: article.processed.text.sentences || []
             },
             html: article.processed.html,
             image: article.meta['og:image'],
