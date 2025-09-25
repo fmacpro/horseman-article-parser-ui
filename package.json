@@ -4,8 +4,10 @@
   "description": "Web Page Inspection Tool UI. Google SERP Preview, Sentiment Analysis, Keyword Extraction, Named Entity Recognition & Spell Check",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --fix",
-    "start": "node index.js"
+    "dev": "cross-env NODE_ENV=development node index.js",
+    "build": "next build public",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "lint": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -19,14 +21,16 @@
   "homepage": "https://github.com/fmacpro/horseman-article-parser-ui#readme",
   "dependencies": {
     "express": "^4.15.3",
-    "horseman-article-parser": "^1.2.0",
-    "next": "^14.2.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "horseman-article-parser": "^1.2.3",
+    "next": "^15.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^15.5.4",
+    "cross-env": "^7.0.3",
     "eslint": "^9.34.0",
     "eslint-plugin-json": "^4.0.1",
     "eslint-plugin-n": "^17.21.3",

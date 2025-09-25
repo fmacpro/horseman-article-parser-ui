@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
+import Image from 'next/image'
 import io from 'socket.io-client'
 
 let socket
@@ -68,8 +69,8 @@ export default function Home () {
         <title>Page Inspector - Page Analysis Tool</title>
         <meta name='description' content='Web Page Inspection Tool. Sentiment Analysis, Keyword Extraction & Named Entity Recognition' />
       </Head>
-      <Script src='https://code.jquery.com/jquery-3.5.1.min.js' strategy='beforeInteractive' />
-      <Script src='https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js' strategy='beforeInteractive' />
+      <Script src='https://code.jquery.com/jquery-3.5.1.min.js' strategy='afterInteractive' />
+      <Script src='https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js' strategy='afterInteractive' />
       <div className='container'>
         <div className='col-md-12'>
           <h1>Page Inspector - Page Analysis Tool</h1>
@@ -158,7 +159,7 @@ export default function Home () {
                 </div>
               )}
               {tab === 'screenshot' && (
-                <img src={`data:image/png;base64,${article.screenshot}`} alt='' />
+                <Image src={`data:image/png;base64,${article.screenshot}`} alt='' width={768} height={2048} unoptimized />
               )}
               {tab === 'json' && (
                 <pre className='content article-text-content'>{jsonData}</pre>
