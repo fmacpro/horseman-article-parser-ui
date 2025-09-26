@@ -1,8 +1,8 @@
 # Horseman Article Parser UI
 
-A web page article parser which returns the article's formatted text & other attributes including Google SERP preview, sentiment, keyphrases, people, places, organisations and spelling suggestions. The UI is built with Next.js and React.
+A web page article parser which returns the article's formatted text & other attributes including a summary, readability metrics, sentiment, keyphrases, people, places, organisations and spelling suggestions. The UI is built with Next.js and React.
 
-![Preview](https://i.imgur.com/daCGQSu.png "App Preview")
+![Preview](https://i.imgur.com/gJLtMYu.png "App Preview")
 
 ### Prerequisites
 
