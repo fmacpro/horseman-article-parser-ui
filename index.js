@@ -31,7 +31,7 @@ async function main () {
       options.url = msg.url
 
       if (msg.tor === true) {
-        options.puppeteer.args = ['--proxy-server=socks5://127.0.0.1:9050']
+        options.puppeteer.launch.args = ['--proxy-server=socks5://127.0.0.1:9150']
       }
 
       parser.parseArticle(options, socket)
