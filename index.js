@@ -54,6 +54,7 @@ async function main () {
             },
             html: article.processed.html,
             image: article.meta['og:image'],
+            images: Array.isArray(article.images) ? article.images : [],
             screenshot: article.screenshot,
             spelling: article.spelling
           }

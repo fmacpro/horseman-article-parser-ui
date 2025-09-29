@@ -8,6 +8,44 @@ let socket
 
 const MAX_KEY_POINTS = 3
 
+const IRRELEVANT_IMAGE_PATTERNS = [
+  /pixel/i,
+  /spacer/i,
+  /sprite/i,
+  /icon/i,
+  /logo/i,
+  /badge/i,
+  /spinner/i,
+  /placeholder/i,
+  /tracking/i,
+  /1x1/i,
+  /analytics/i
+]
+
+const IMAGES_PER_PAGE = 1
+const EMPTY_IMAGE_LIST = Object.freeze([])
+
+const filterRelevantImages = (images) => {
+  if (!Array.isArray(images)) return []
+  const seen = new Set()
+  return images
+    .filter((img) => img && typeof img.src === 'string' && img.src.trim() !== '')
+    .map((img) => ({ ...img, src: img.src.trim() }))
+    .filter((img) => {
+      const src = img.src.toLowerCase()
+      const alt = (img.alt || '').toLowerCase()
+      if (src.startsWith('data:')) return false
+      if (src.endsWith('.svg') && !alt) return false
+      const descriptor = `${src} ${alt}`
+      return !IRRELEVANT_IMAGE_PATTERNS.some((pattern) => pattern.test(descriptor))
+    })
+    .filter((img) => {
+      if (seen.has(img.src)) return false
+      seen.add(img.src)
+      return true
+    })
+}
+
 const formatNumber = (value) => {
   if (typeof value !== 'number' || Number.isNaN(value)) return null
   return value.toLocaleString()
@@ -46,6 +84,8 @@ export default function Home () {
   const [article, setArticle] = useState(null)
   const [jsonData, setJsonData] = useState('')
   const [tab, setTab] = useState('text')
+  const [imagePage, setImagePage] = useState(0)
+  const [imagePageTransition, setImagePageTransition] = useState(false)
 
   useEffect(() => {
     socket = io()
@@ -56,6 +96,8 @@ export default function Home () {
       const sentimentSummary = a.sentiment
         ? { score: a.sentiment.score, comparative: a.sentiment.comparative }
         : null
+
+      const filteredImages = filterRelevantImages(a.images)
 
       const json = {
         title: a.title,
@@ -68,7 +110,8 @@ export default function Home () {
         orgs: a.orgs,
         places: a.places,
         readability: a.readability,
-        keyPoints
+        keyPoints,
+        images: filteredImages
       }
       setJsonData(JSON.stringify(json, null, 2))
 
@@ -82,7 +125,8 @@ export default function Home () {
         titlePreview: fixLen(a.title, 71),
         url: fixLen(a.url, 71),
         sentiment: a.sentiment,
-        keyPoints
+        keyPoints,
+        images: filteredImages
       }
 
       setArticle(enhancedArticle)
@@ -100,6 +144,41 @@ export default function Home () {
       socket.close()
     }
   }, [])
+
+  const articleImages = Array.isArray(article?.images) ? article.images : EMPTY_IMAGE_LIST
+
+  useEffect(() => {
+    setImagePage(0)
+  }, [articleImages])
+
+  const totalImagePages = useMemo(() => {
+    if (articleImages.length === 0) return 0
+    return Math.ceil(articleImages.length / IMAGES_PER_PAGE)
+  }, [articleImages])
+
+  useEffect(() => {
+    if (imagePage > 0 && totalImagePages > 0 && imagePage > totalImagePages - 1) {
+      setImagePage(totalImagePages - 1)
+    }
+  }, [imagePage, totalImagePages])
+
+  const currentImagePage = totalImagePages > 0 ? Math.min(imagePage, totalImagePages - 1) : 0
+
+  const paginatedImages = useMemo(() => {
+    if (articleImages.length === 0) return EMPTY_IMAGE_LIST
+    const start = currentImagePage * IMAGES_PER_PAGE
+    return articleImages.slice(start, start + IMAGES_PER_PAGE)
+  }, [articleImages, currentImagePage])
+
+  useEffect(() => {
+    if (totalImagePages === 0) {
+      setImagePageTransition(false)
+      return
+    }
+    setImagePageTransition(true)
+    const timeout = setTimeout(() => setImagePageTransition(false), 240)
+    return () => clearTimeout(timeout)
+  }, [currentImagePage, totalImagePages])
 
   const getResults = (e) => {
     e.preventDefault()
@@ -182,6 +261,43 @@ export default function Home () {
                         <span className='sentiment-detail'>Comparative: {article.sentiment.comparative.toFixed(2)}</span>
                       )}
                     </div>
+                  </div>
+                )}
+
+                {articleImages.length > 0 && (
+                  <div className='analysis-card image-gallery-card'>
+                    <h3>Images</h3>
+                    <div className={`article-image-grid${imagePageTransition ? ' article-image-grid-animating' : ''}`}>
+                      {paginatedImages.map((image) => (
+                        <figure className='article-image-item' key={image.src || String(image.index)}>
+                          <img src={image.src} alt={image.alt || article.title || 'Article image'} loading='lazy' />
+                          {image.alt && <figcaption>{image.alt}</figcaption>}
+                        </figure>
+                      ))}
+                    </div>
+                    {totalImagePages > 1 && (
+                      <div className='article-image-pagination'>
+                        <button
+                          type='button'
+                          className='btn btn-default btn-sm'
+                          onClick={() => setImagePage((prev) => Math.max(prev - 1, 0))}
+                          disabled={currentImagePage === 0}
+                        >
+                          Previous
+                        </button>
+                        <span className='article-image-pagination-info'>
+                          {currentImagePage + 1} of {totalImagePages}
+                        </span>
+                        <button
+                          type='button'
+                          className='btn btn-default btn-sm'
+                          onClick={() => setImagePage((prev) => Math.min(prev + 1, totalImagePages - 1))}
+                          disabled={currentImagePage >= totalImagePages - 1}
+                        >
+                          Next
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )}
 
