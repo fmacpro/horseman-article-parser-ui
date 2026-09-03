@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/fmacpro/horseman-article-parser-ui#readme",
   "dependencies": {
-    "express": "^4.15.3",
+    "express": "^5.2.1",
     "horseman-article-parser": "^1.3.0",
     "next": "^16.3.0-preview.5",
     "react": "^18.3.1",
