@@ -270,6 +270,7 @@ export default function Home () {
                     <div className={`article-image-grid${imagePageTransition ? ' article-image-grid-animating' : ''}`}>
                       {paginatedImages.map((image) => (
                         <figure className='article-image-item' key={image.src || String(image.index)}>
+                          {/* eslint-disable-next-line @next/next/no-img-element -- dynamic external article images cannot be pre-configured for next/image */}
                           <img src={image.src} alt={image.alt || article.title || 'Article image'} loading='lazy' />
                           {image.alt && <figcaption>{image.alt}</figcaption>}
                         </figure>

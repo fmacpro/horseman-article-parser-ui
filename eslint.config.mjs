@@ -1,4 +1,5 @@
 import js from "@eslint/js"
+import globals from "globals"
 import pluginN from "eslint-plugin-n"
 import pluginPromise from "eslint-plugin-promise"
 import pluginJson from "eslint-plugin-json"
@@ -51,6 +52,12 @@ export default [
       "app/**/*.{js,jsx,ts,tsx}",
       "components/**/*.{js,jsx,ts,tsx}"
     ],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      }
+    },
     rules: {
       "no-unused-vars": "off"
     }
